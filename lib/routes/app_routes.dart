@@ -9,5 +9,8 @@ class AppRoutes {
   static const String home = '/home';
   static const String startup = '/startup';
   static const String bottombar = '/bottombar';
+  static const String explore = '/explore';
+    static const String vault = '/vault';
+    static const String setting = '/setting';
 
 }

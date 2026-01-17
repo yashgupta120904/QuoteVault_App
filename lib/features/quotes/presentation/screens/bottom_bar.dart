@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:quotevault/features/explore/presentation/screens/explore_screen.dart';
+import 'package:quotevault/features/quotes/presentation/screens/quote_vault_screen.dart';
+import 'package:quotevault/main.dart';
 import '../../../../core/widgets/custom_bottom_nav_bar.dart';
-import '../../../../core/utils/size_config.dart';
+
+import '../../../favorites/presentation/vault_screen.dart';
+import '../../../settings/persentation/screens/setting_screen.dart';
 
 
 
@@ -24,11 +29,10 @@ class _BottomBarState extends State<BottomBar> {
     super.initState();
 
     pages = const [
-      Center(child: Text("#!")),
-      Center(child: Text("#!")),
-      Center(child: Text("#!")),
-      Center(child: Text("#!")),
-     
+      QuoteVaultScreen(),
+      ExploreScreen(),
+      VaultScreen(),
+      SettingsScreen()
     ];
   }
 
@@ -41,7 +45,7 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     // REQUIRED for responsive sizes
-    SizeConfig.init(context);
+  
 
     return Scaffold(
       body: pages[currentIndex],

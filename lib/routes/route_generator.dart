@@ -1,29 +1,26 @@
-
 import 'package:flutter/material.dart';
 import 'package:quotevault/core/startup/app_startup.dart';
 import 'package:quotevault/features/auth/presentation/screens/forgotPassword_screen.dart';
 import 'package:quotevault/features/auth/presentation/screens/login_screen.dart';
 import 'package:quotevault/features/auth/presentation/screens/reset_password_screen.dart';
 import 'package:quotevault/features/auth/presentation/screens/signup_screen.dart';
+import 'package:quotevault/features/settings/persentation/screens/setting_screen.dart';
+import 'package:quotevault/main.dart';
 
 import '../features/auth/presentation/screens/welcome_screen.dart';
-import '../features/quotes/home_screen.dart';
+import '../features/explore/presentation/screens/explore_screen.dart';
+
+import '../features/favorites/presentation/vault_screen.dart';
 import '../features/quotes/presentation/screens/bottom_bar.dart';
 import 'app_routes.dart';
 
-
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-   
     switch (settings.name) {
-
-
-
-          case AppRoutes.startup:
+      case AppRoutes.startup:
         return MaterialPageRoute(
           builder: (_) => const AppStartup(),
         );
-
 
       case AppRoutes.welcome:
         return MaterialPageRoute(
@@ -48,19 +45,23 @@ class RouteGenerator {
         );
 
       //Quote Section
-         case AppRoutes.home:
-        return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
-        );
-         case AppRoutes.bottombar:
+
+      case AppRoutes.bottombar:
         return MaterialPageRoute(
           builder: (_) => const BottomBar(),
         );
+      case AppRoutes.explore:
+        return MaterialPageRoute(
+          builder: (_) => const ExploreScreen(),
+        );
 
+      case AppRoutes.vault:
+        return MaterialPageRoute(
+          builder: (_) => const VaultScreen(),
+        );
+      case AppRoutes.setting:
+        return MaterialPageRoute(builder: (_) => const SettingsScreen());
 
-
-
-     
       default:
         return MaterialPageRoute(
           builder: (_) => const Scaffold(
@@ -70,6 +71,5 @@ class RouteGenerator {
           ),
         );
     }
-    
   }
 }
