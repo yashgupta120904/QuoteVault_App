@@ -5,12 +5,12 @@ import 'package:quotevault/features/auth/presentation/screens/login_screen.dart'
 import 'package:quotevault/features/auth/presentation/screens/reset_password_screen.dart';
 import 'package:quotevault/features/auth/presentation/screens/signup_screen.dart';
 import 'package:quotevault/features/settings/persentation/screens/setting_screen.dart';
-import 'package:quotevault/main.dart';
+import 'package:quotevault/features/share/presentation/screens/share_screen.dart';
 
 import '../features/auth/presentation/screens/welcome_screen.dart';
 import '../features/explore/presentation/screens/explore_screen.dart';
 
-import '../features/favorites/presentation/vault_screen.dart';
+import '../features/favorites/presentation/screens/vault_screen.dart';
 import '../features/quotes/presentation/screens/bottom_bar.dart';
 import 'app_routes.dart';
 
@@ -61,6 +61,10 @@ class RouteGenerator {
         );
       case AppRoutes.setting:
         return MaterialPageRoute(builder: (_) => const SettingsScreen());
+
+         case AppRoutes.share:
+        return MaterialPageRoute(builder: (_) => const ShareScreen());
+
 
       default:
         return MaterialPageRoute(

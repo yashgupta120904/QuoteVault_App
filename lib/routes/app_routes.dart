@@ -10,7 +10,7 @@ class AppRoutes {
   static const String startup = '/startup';
   static const String bottombar = '/bottombar';
   static const String explore = '/explore';
-    static const String vault = '/vault';
-    static const String setting = '/setting';
-
+  static const String vault = '/vault';
+  static const String setting = '/setting';
+  static const String share = '/share';
 }

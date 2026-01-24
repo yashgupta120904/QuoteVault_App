@@ -82,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
             title: 'Welcome',
             message: 'Login successful',
           );
-            Navigator.pushNamed(context, AppRoutes.home);
+            Navigator.pushReplacementNamed(context, AppRoutes.bottombar);
         }_actionHandled = true; // 🔒 LOCK IT
       });
     }

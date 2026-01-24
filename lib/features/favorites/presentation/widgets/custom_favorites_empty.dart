@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/app_colors.dart';
-import '../../../../core/utils/size_config.dart';
+import '../../../../../core/constants/app_colors.dart';
+import '../../../../../core/utils/size_config.dart';
 
 class EmptyVaultView extends StatelessWidget {
   final String title;

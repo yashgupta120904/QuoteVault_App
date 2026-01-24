@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 import '../constants/app_colors.dart';
@@ -7,24 +8,19 @@ import 'size_config.dart';
 enum SnackbarType { success, error, info }
 
 /// ------------------------------------------------------------
-/// SHOW SNACKBAR
+/// SHOW SNACKBAR (THEME SAFE)
 /// ------------------------------------------------------------
 void showCustomSnackbar({
-  
   required SnackbarType type,
   required String title,
   required String message,
-  Duration duration = const Duration(seconds: 4),
+  Duration duration = const Duration(seconds: 2),
 }) {
-    final messenger = scaffoldMessengerKey.currentState;
-    if (messenger == null) return;
-
-      final context = messenger.context;
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+  final messenger = scaffoldMessengerKey.currentState;
+  if (messenger == null) return;
 
   WidgetsBinding.instance.addPostFrameCallback((_) {
-
-messenger.showSnackBar(
+    messenger.showSnackBar(
       SnackBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -38,7 +34,6 @@ messenger.showSnackBar(
           type: type,
           title: title,
           message: message,
-          isDark: isDark,
         ),
       ),
     );
@@ -52,57 +47,46 @@ class _CustomSnackbar extends StatelessWidget {
   final SnackbarType type;
   final String title;
   final String message;
-  final bool isDark;
 
   const _CustomSnackbar({
     required this.type,
     required this.title,
     required this.message,
-    this.isDark = false,
   });
-
-  Color get _bgColor =>
-      isDark ? AppColors.darkSurfaceLight : AppColors.lightSurfaceLight;
-
-  Color get _accentColor {
-    switch (type) {
-      case SnackbarType.success:
-        return AppColors.successColor;
-      case SnackbarType.error:
-        return AppColors.errorColor;
-      case SnackbarType.info:
-        return AppColors.infoColor;
-    }
-  }
-
-  IconData get _icon {
-    switch (type) {
-      case SnackbarType.success:
-        return Icons.check_circle_rounded;
-      case SnackbarType.error:
-        return Icons.cancel_rounded;
-      case SnackbarType.info:
-        return Icons.info_rounded;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
+    /// 🔥 ALWAYS CORRECT THEME
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final bgColor =
+        isDark ? AppColors.darkSurfaceLight : AppColors.lightSurfaceLight;
+
+    final accentColor = switch (type) {
+      SnackbarType.success => AppColors.successColor,
+      SnackbarType.error => AppColors.errorColor,
+      SnackbarType.info => AppColors.infoColor,
+    };
+
+    final icon = switch (type) {
+      SnackbarType.success => Icons.check_circle_rounded,
+      SnackbarType.error => Icons.cancel_rounded,
+      SnackbarType.info => Icons.info_rounded,
+    };
+
     return Container(
       padding: EdgeInsets.all(SizeConfig.blockWidth * 3),
       decoration: BoxDecoration(
-        color: _bgColor,
+        color: bgColor,
         borderRadius: BorderRadius.circular(12),
         border: Border(
-          left: BorderSide(color: _accentColor, width: 4),
+          left: BorderSide(color: accentColor, width: 4),
         ),
-
-        /// 🔥 Bottom-only shadow
         boxShadow: [
           BoxShadow(
-            color: _accentColor.withOpacity(0.8),
+            color: accentColor.withOpacity(0.75),
             offset: const Offset(0, 2),
-            blurRadius: 3,
+            blurRadius: 4,
             spreadRadius: -1,
           ),
         ],
@@ -110,21 +94,17 @@ class _CustomSnackbar extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          /// 🔹 LEFT ICON (VERTICALLY CENTERED)
           SizedBox(
             height: SizeConfig.blockHeight * 7,
             child: Center(
               child: Icon(
-                _icon,
-                color: _accentColor,
+                icon,
+                color: accentColor,
                 size: SizeConfig.blockWidth * 6,
               ),
             ),
           ),
-
           SizedBox(width: SizeConfig.blockWidth * 2),
-
-          /// 🔹 TITLE + MESSAGE
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,14 +133,13 @@ class _CustomSnackbar extends StatelessWidget {
               ],
             ),
           ),
-
-          /// 🔹 CLOSE ICON (ALIGNED WITH TITLE)
           Padding(
             padding: EdgeInsets.only(
               top: SizeConfig.blockHeight * 0.15,
             ),
             child: GestureDetector(
-              onTap: () => ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+              onTap: () =>
+                  ScaffoldMessenger.of(context).hideCurrentSnackBar(),
               child: Icon(
                 Icons.close,
                 size: SizeConfig.blockWidth * 5,
@@ -175,3 +154,4 @@ class _CustomSnackbar extends StatelessWidget {
     );
   }
 }
+

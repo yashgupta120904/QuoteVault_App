@@ -1,13 +1,19 @@
+// 
 import 'package:flutter/material.dart';
 import 'package:quotevault/core/constants/app_colors.dart';
 
-import '../../../core/utils/size_config.dart';
-import '../../quotes/data/models/quote_model.dart';
+import '../../../../core/utils/size_config.dart';
+import '../../../quotes/data/models/quote_model.dart';
 
 class GridQuoteCard extends StatelessWidget {
   final Quote quote;
+  final VoidCallback? onToggleFavorite; // 👈 Added callback
 
-  const GridQuoteCard({Key? key, required this.quote}) : super(key: key);
+  const GridQuoteCard({
+    Key? key,
+    required this.quote,
+    this.onToggleFavorite, // 👈 Added parameter
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +53,14 @@ class GridQuoteCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(
-                    Icons.favorite,
-                    color: Colors.white,
-                    size: SizeConfig.blockWidth * 5,
+                  // 👇 Made icon tappable
+                  GestureDetector(
+                    onTap: onToggleFavorite,
+                    child: Icon(
+                      Icons.favorite,
+                      color: Colors.white,
+                      size: SizeConfig.blockWidth * 5,
+                    ),
                   ),
                   Icon(
                     Icons.format_quote,
@@ -111,10 +121,14 @@ class GridQuoteCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(
-                Icons.favorite,
-                color: AppColors.primaryColor,
-                size: SizeConfig.blockWidth * 5,
+              // 👇 Made icon tappable
+              GestureDetector(
+                onTap: onToggleFavorite,
+                child: Icon(
+                  Icons.favorite,
+                  color: AppColors.primaryColor,
+                  size: SizeConfig.blockWidth * 5,
+                ),
               ),
               Icon(
                 Icons.format_quote,

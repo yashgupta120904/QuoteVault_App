@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/utils/size_config.dart';
-
 
 class CategoryPills extends StatelessWidget {
   final List<String> categories;
@@ -17,6 +17,8 @@ class CategoryPills extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return SizedBox(
       height: SizeConfig.blockHeight * 4,
       child: ListView.separated(
@@ -35,14 +37,19 @@ class CategoryPills extends StatelessWidget {
                 vertical: SizeConfig.blockHeight * 1,
               ),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(SizeConfig.blockWidth * 5),
+                borderRadius:
+                    BorderRadius.circular(SizeConfig.blockWidth * 5),
                 color: isSelected
                     ? AppColors.primaryColor
-                    : AppColors.darkSurfaceLight,
+                    : isDark
+                        ? AppColors.darkSurfaceLight
+                        : AppColors.lightSurfaceLight,
                 border: Border.all(
                   color: isSelected
                       ? AppColors.primaryColor
-                      : AppColors.darkBorder,
+                      : isDark
+                          ? AppColors.darkBorder
+                          : AppColors.lightBorder,
                   width: 1,
                 ),
               ),
@@ -52,8 +59,10 @@ class CategoryPills extends StatelessWidget {
                   fontSize: SizeConfig.blockWidth * 3,
                   fontWeight: FontWeight.w600,
                   color: isSelected
-                      ? AppColors.darkTextPrimary
-                      : AppColors.darkTextSecondary,
+                      ? Colors.white
+                      : isDark
+                          ? AppColors.darkTextSecondary
+                          : AppColors.lightTextSecondary,
                 ),
               ),
             ),

@@ -1,51 +1,4 @@
-// import 'package:flutter/material.dart';
-// import '../../../../core/errors/failure.dart';
-// import '../../domain/repositories/auth_repository_impl.dart';
 
-// class AuthProvider extends ChangeNotifier {
-//   final AuthRepository repository;
-
-//   AuthProvider(this.repository);
-//  bool isSuccess = false; 
-//   bool isLoading = false;
-//   String? errorMessage;
-
-//   Future<void> login(String email, String password) async {
-//     _startLoading();
-//     final failure = await repository.login(email, password);
-//     _handleFailure(failure);
-//   }
-
-//   Future<void> signup(String name, String email, String password) async {
-//     _startLoading();
-//     final failure = await repository.signup(name, email, password);
-//     _handleFailure(failure);
-//   }
-
-//   Future<void> forgotPassword(String email) async {
-//     _startLoading();
-//     final failure = await repository.forgotPassword(email);
-//     _handleFailure(failure);
-//   }
-
-//   Future<void> resetPassword(String password) async {
-//     _startLoading();
-//     final failure = await repository.resetPassword(password);
-//     _handleFailure(failure);
-//   }
-
-//   void _handleFailure(Failure? failure) {
-//     isLoading = false;
-//     errorMessage = failure?.message;
-//     notifyListeners();
-//   }
-
-//   void _startLoading() {
-//     isLoading = true;
-//     errorMessage = null;
-//     notifyListeners();
-//   }
-// }
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../../core/errors/failure.dart';
@@ -56,6 +9,7 @@ class AuthProvider extends ChangeNotifier {
   final AuthRepository repository;
 
   AuthProvider(this.repository);
+  User? get user => Supabase.instance.client.auth.currentUser;
 
   bool isLoading = false;
   bool isSuccess = false; // ✅ success flag
@@ -63,11 +17,7 @@ class AuthProvider extends ChangeNotifier {
   String? errorMessage;
 
   // ---------------- LOGIN ----------------
-  // Future<void> login(String email, String password) async {
-  //   _startLoading();
-  //   final failure = await repository.login(email, password);
-  //   _handleResult(failure);
-  // }
+
   
   Future<void> login(String email, String password) async {
   _startLoading();

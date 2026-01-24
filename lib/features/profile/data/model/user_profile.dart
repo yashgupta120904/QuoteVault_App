@@ -1,22 +1,34 @@
 class UserProfile {
+  final String id;
   final String name;
   final String email;
-  final String? imagePath;
+  final String? avatarUrl;
 
   UserProfile({
+    required this.id,
     required this.name,
     required this.email,
-    this.imagePath,
+    this.avatarUrl,
   });
+
+  factory UserProfile.fromJson(Map<String, dynamic> json) {
+    return UserProfile(
+      id: json['id'],
+      name: json['name'] ?? '',
+      email: json['email'] ?? '',
+      avatarUrl: json['avatar_url'],
+    );
+  }
 
   UserProfile copyWith({
     String? name,
-    String? imagePath,
+    String? avatarUrl,
   }) {
     return UserProfile(
+      id: id,
       name: name ?? this.name,
       email: email,
-      imagePath: imagePath ?? this.imagePath,
+      avatarUrl: avatarUrl ?? this.avatarUrl,
     );
   }
 }

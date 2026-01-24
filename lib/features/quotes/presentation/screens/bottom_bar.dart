@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quotevault/features/explore/presentation/screens/explore_screen.dart';
 import 'package:quotevault/features/quotes/presentation/screens/quote_vault_screen.dart';
-import 'package:quotevault/main.dart';
 import '../../../../core/widgets/custom_bottom_nav_bar.dart';
-
-import '../../../favorites/presentation/vault_screen.dart';
+import '../../../favorites/presentation/screens/vault_screen.dart';
 import '../../../settings/persentation/screens/setting_screen.dart';
-
-
-
 
 class BottomBar extends StatefulWidget {
   static const String routeName = '/bottom-bar';
@@ -32,11 +27,13 @@ class _BottomBarState extends State<BottomBar> {
       QuoteVaultScreen(),
       ExploreScreen(),
       VaultScreen(),
-      SettingsScreen()
+      SettingsScreen(),
     ];
   }
 
   void onTabChanged(int index) {
+    if (index == currentIndex) return;
+
     setState(() {
       currentIndex = index;
     });
@@ -44,18 +41,32 @@ class _BottomBarState extends State<BottomBar> {
 
   @override
   Widget build(BuildContext context) {
-    // REQUIRED for responsive sizes
-  
+    return WillPopScope(
+      onWillPop: () async {
+          if (currentIndex != 0) {
+    // 🔁 Go back to first tab instead of exiting app
+    setState(() {
+      currentIndex = 0;
+    });
+    return false; // prevent app exit
+  }
 
-    return Scaffold(
-      body: pages[currentIndex],
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: currentIndex,
-        isDark: Theme.of(context).brightness == Brightness.dark,
-        onTap: onTabChanged,
-        onThemeToggle: () {
-          // optional theme toggle
-        },
+  // ✅ On first tab → allow app to close
+  return true;
+      },
+      child: Scaffold(
+        body: IndexedStack(
+          index: currentIndex,
+          children: pages,
+        ),
+        bottomNavigationBar: CustomBottomNavBar(
+          currentIndex: currentIndex,
+          isDark: Theme.of(context).brightness == Brightness.dark,
+          onTap: onTabChanged,
+          onThemeToggle: () {
+            // optional theme toggle
+          },
+        ),
       ),
     );
   }
