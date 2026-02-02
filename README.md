@@ -143,16 +143,6 @@ SUPABASE_ANON_KEY=your_supabase_anon_key
 
 ```bash
 flutter run
-```
-
----
-
-## 📲 APK Download
-
-👉 **Download the latest APK here:**
-🔗 **(https://drive.google.com/drive/folders/1Utpv1KgfWj3DEJYSJn9DZ1NBZngiDlze)**
-
-> *(Replace this link with your Google Drive / Firebase Hosting / GitHub Release URL)*
 
 ---
 
@@ -163,15 +153,15 @@ flutter run
 ```md
 ```
 
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/68aa396f-51f0-4362-a3a1-b84a5e247f6d" />
+<img width="720" height="800" alt="image" src="https://github.com/user-attachments/assets/68aa396f-51f0-4362-a3a1-b84a5e247f6d" />
 
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/466a22e9-8ff0-4b72-973e-bc3ceb37ec2c" />
+<img width="720" height="800" alt="image" src="https://github.com/user-attachments/assets/466a22e9-8ff0-4b72-973e-bc3ceb37ec2c" />
 
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/fa720729-1a0a-4d61-a586-3cd6d725d2be" />
+<img width="720" height="800" alt="image" src="https://github.com/user-attachments/assets/fa720729-1a0a-4d61-a586-3cd6d725d2be" />
 
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/4734affd-20fa-48d7-93cc-9b5f54226e64" />
+<img width="720" height="800" alt="image" src="https://github.com/user-attachments/assets/4734affd-20fa-48d7-93cc-9b5f54226e64" />
 
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/75d12df7-3db3-45de-aed4-f1a803565fed" />
+<img width="720" height="800" alt="image" src="https://github.com/user-attachments/assets/75d12df7-3db3-45de-aed4-f1a803565fed" />
 
 
 
@@ -231,3 +221,4 @@ Flutter Developer | Backend Enthusiast
 
 
 Just tell me 😄
+
