@@ -1,20 +1,4 @@
 
-Below is a **FULL, PROFESSIONAL `README.md` FILE** for **QuoteVault** that you can **copy-paste directly** into GitHub.
-It includes:
-
-* App overview
-* Features
-* Architecture & AI help summary
-* Tech stack
-* Installation steps
-* APK download section
-* Screenshots placeholder
-* Environment setup
-
-I’ve written it in a **clean, real-world open-source style** (not overhyped).
-
----
-
 # 📜 QuoteVault
 
 **QuoteVault** is a Flutter mobile application that delivers a carefully curated **Quote of the Day**, allows users to explore inspirational quotes, save favorites, and receive daily notifications — all powered by a backend-driven, automated architecture.
@@ -148,24 +132,27 @@ flutter run
 
 ## 🖼️ Screenshots
 
-> *(Add screenshots here)*
-
-```md
 ```
 
-<img width="720" height="800" alt="image" src="https://github.com/user-attachments/assets/68aa396f-51f0-4362-a3a1-b84a5e247f6d" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/68aa396f-51f0-4362-a3a1-b84a5e247f6d" width="600" />
+</p>
 
-<img width="720" height="800" alt="image" src="https://github.com/user-attachments/assets/466a22e9-8ff0-4b72-973e-bc3ceb37ec2c" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/466a22e9-8ff0-4b72-973e-bc3ceb37ec2c" width="600" />
+</p>
 
-<img width="720" height="800" alt="image" src="https://github.com/user-attachments/assets/fa720729-1a0a-4d61-a586-3cd6d725d2be" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/fa720729-1a0a-4d61-a586-3cd6d725d2be" width="600" />
+</p>
 
-<img width="720" height="800" alt="image" src="https://github.com/user-attachments/assets/4734affd-20fa-48d7-93cc-9b5f54226e64" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4734affd-20fa-48d7-93cc-9b5f54226e64" width="600" />
+</p>
 
-<img width="720" height="800" alt="image" src="https://github.com/user-attachments/assets/75d12df7-3db3-45de-aed4-f1a803565fed" />
-
-
-
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/75d12df7-3db3-45de-aed4-f1a803565fed" width="600" />
+</p>
 
 ---
 
@@ -218,7 +205,4 @@ Flutter Developer | Backend Enthusiast
 ### ⭐ If you like this project, don’t forget to star the repo!
 
 
-
-
-Just tell me 😄
 
